@@ -1,0 +1,50 @@
+<h5 class="center-align">
+  Formulario de carga de autos
+</h5>
+<form #autoForm="ngForm" id="autoForm">
+  <div class="row">
+    <div class="input-field col s4">
+      <input id="patente" type="text" class="validate" #patente=ngModel required pattern={{mascaraPatente}} [(ngModel)]="autoSeleccionado.patente" name="patente">
+      <label [ngClass]="{'active': autoSeleccionado?.patente}" for="patente" id="patente_label">Patente</label>
+      <div [hidden]="patente.valid || patente.pristine">Requerido. XX-999-XX/XXX-999</div>
+    </div>
+    <div class="input-field col s4">
+      <input id="marca" type="text" class="validate" #marca=ngModel required [(ngModel)]="autoSeleccionado.marca" name="marca">
+      <label [ngClass]="{'active': autoSeleccionado?.marca}" for="marca">Marca</label>
+      <div [hidden]="marca.valid || marca.pristine">Requerido.</div>
+    </div>
+    <div class="input-field col s4">
+      <input id="modelo" type="text" class="validate" #modelo=ngModel required [(ngModel)]="autoSeleccionado.modelo" name="modelo">
+      <label [ngClass]="{'active': autoSeleccionado?.modelo}" for="modelo">Modelo</label>
+      <div [hidden]="modelo.valid || modelo.pristine">Requerido.</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s4">
+      <select materialize="material_select" id="color" required [(ngModel)]="autoSeleccionado.color" name="color" #color=ngModel>
+      <option disabled>Seleccione un color</option>
+      <option *ngFor="let color of colores" [ngValue]="color" [selected]="color">{{color}}</option>
+    </select>
+      <label [ngClass]="{'active': autoSeleccionado?.color}" >Color</label>
+      <!--TODO: remove this: {{persona.equipo}}-->
+      <div [hidden]="!color.pristine">Requerido.</div>
+    </div>
+
+    <div class="input-field col s4">
+      <input id="anio" type="number" class="validate" #anio=ngModel required pattern={{mascaraModeloAnio}} [(ngModel)]="autoSeleccionado.anio" name="anio">
+      <label [ngClass]="{'active': autoSeleccionado?.anio}" for="anio">Modelo Año</label>
+      <div [hidden]="anio.valid || anio.pristine">Requerido. (1900-2017).</div>
+    </div>
+
+  </div>
+
+</form>
+
+
+<button [ngClass]="{'disabled': editando}" type="submit" class="waves-effect waves-light btn" [disabled]="!autoForm.form.valid" (click)="agregarAuto()">Agregar</button>
+<button [ngClass]="{'disabled': !editando}" class="waves-effect waves-light btn" [disabled]="!autoForm.form.valid" (click)="editarAuto()">Guardar</button>
+<button [ngClass]="{'disabled': !editando}" class="waves-effect waves-light btn" [disabled]="!autoForm.form.valid" (click)="cancelarAuto()">Cancelar</button>
+<!--Editando: {{editando}}-->
+<hr>
+
+<app-listado-autos (onEdit)="onEdit($event)"> </app-listado-autos>
