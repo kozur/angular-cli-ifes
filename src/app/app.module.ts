@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { MaterializeModule } from 'angular2-materialize';
 import { MostrarDirective } from './mostrar.directive';
 import { DropdownDirective } from './dropdown.directive';
 import { UpdateFormDirective } from './update-form.directive';
+import { FormularioReactivoComponent } from './formulario-reactivo/formulario-reactivo.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +23,16 @@ import { UpdateFormDirective } from './update-form.directive';
     ListadoAutosComponent,
     MostrarDirective,
     DropdownDirective,
-    UpdateFormDirective
+    UpdateFormDirective,
+    FormularioReactivoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MaterializeModule
+    MaterializeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

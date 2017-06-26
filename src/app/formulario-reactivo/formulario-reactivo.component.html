@@ -1,0 +1,37 @@
+<div *ngIf="!nombreChofer; else cursoInfo">
+  <form [formGroup]="grupoFormulario" (ngSubmit)="agregarChofer(grupoFormulario.value)">
+    <div class="form-container">
+      <div class="row columns">
+        <h1>Cursos Reactivos</h1>
+        <label>Nombre Chofer
+          <input type="text" formControlName="nombreChofer">
+        </label>
+
+        <label>Apellido Chofer
+          <textarea  formControlName="apellidoChofer"></textarea>
+        </label>
+
+        <label>Licencia
+          <textarea  formControlName="licencia"></textarea>
+        </label>
+
+        <label>Email
+          <textarea  formControlName="email"></textarea>
+        </label>
+
+        <input type="submit" class="button expanded" value="Agregar Curso" [disabled]="!grupoFormulario.valid">
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #cursoInfo>
+  <div class="form-container">
+    <div class="row columns">
+      <h1>{{ nombreChofer }}</h1>
+      <p>{{ apellidoChofer }}</p>
+      <p>{{ licencia }}</p>
+      <p>{{ email }}</p>
+    </div>
+  </div>
+</ng-template>
