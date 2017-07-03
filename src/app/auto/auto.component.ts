@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer } from '@angular/core';
-import { Auto } from "app/auto";
+import { Auto } from "app/clases/auto";
 import { ListadoAutosComponent } from '../listado-autos/listado-autos.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { MaterializeModule } from 'angular2-materialize';

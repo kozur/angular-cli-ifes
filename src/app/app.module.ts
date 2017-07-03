@@ -10,10 +10,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ListadoAutosComponent } from './listado-autos/listado-autos.component';
 
 import { MaterializeModule } from 'angular2-materialize';
-import { MostrarDirective } from './mostrar.directive';
-import { DropdownDirective } from './dropdown.directive';
-import { UpdateFormDirective } from './update-form.directive';
+import { MostrarDirective } from './directivas/mostrar.directive';
+import { DropdownDirective } from './directivas/dropdown.directive';
+import { UpdateFormDirective } from './directivas/update-form.directive';
 import { FormularioReactivoComponent } from './formulario-reactivo/formulario-reactivo.component';
+import { EquipoComponent } from './equipo/equipo.component';
+import { DetalleEquipoComponent } from './detalle-equipo/detalle-equipo.component';
+
+import { EquipoService } from "./services/equipo.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { FormularioReactivoComponent } from './formulario-reactivo/formulario-re
     MostrarDirective,
     DropdownDirective,
     UpdateFormDirective,
-    FormularioReactivoComponent
+    FormularioReactivoComponent,
+    EquipoComponent,
+    DetalleEquipoComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,7 @@ import { FormularioReactivoComponent } from './formulario-reactivo/formulario-re
     MaterializeModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [EquipoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

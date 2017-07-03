@@ -1,0 +1,12 @@
+<ul class="collection with-header">
+  <li class="collection-header">
+    <h4>Equipos</h4>
+  </li>
+  <li class="collection-item" *ngFor="let equipo of equipos">
+    <div>{{equipo.nombreEquipo}}<a (click)="seleccionarEquipo(equipo)" class="secondary-content"><i class="material-icons">send</i></a></div>
+  </li>
+</ul>
+
+<div *ngIf="equipoSeleccionado">
+  <app-detalle-equipo [equipo]="equipoSeleccionado"></app-detalle-equipo>
+</div>
