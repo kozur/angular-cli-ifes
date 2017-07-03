@@ -13,7 +13,6 @@ export class EquipoService {
     delayMs = 500;
 
     getEquipos(): Observable<Equipo[]> {
-        debugger;
         return of(equipos).delay(this.delayMs); // simula delay
     }
 }
