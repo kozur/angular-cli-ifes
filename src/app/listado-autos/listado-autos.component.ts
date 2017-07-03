@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, EventEmitter, Output } from '@angular/core';
-import { Auto } from "app/auto";
+import { Auto } from "app/clases/auto";
 import { AutoComponent } from '../auto/auto.component';
-import { MostrarDirective } from "app/mostrar.directive";
+import { MostrarDirective } from "app/directivas/mostrar.directive";
 
 declare var $: any;
 
